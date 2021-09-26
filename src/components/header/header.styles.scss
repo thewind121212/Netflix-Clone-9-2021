@@ -1,0 +1,77 @@
+.header {
+  width: 100vw;
+  z-index: 999;
+  height: 41px;
+  padding: 0 4%;
+  background: transparent;
+  position: fixed;
+  transition: all 400ms ease;
+
+  &.nav__black {
+    background-color: black;
+    .nav__logo {
+      background-image: url("../../assets/logo.png");
+    }
+  }
+
+  .nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &__logo {
+      background-image: url("../../assets/logo-transparent.png");
+      background-size: cover;
+      background-position: center center;
+      width: 100px;
+    }
+
+    &__menu {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__list {
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__link {
+      font-size: 0.6rem;
+      color: white;
+      font-weight: 500;
+      font-family: "Netflix Sans", sans-serif;
+    }
+
+    &__function {
+      position: absolute;
+      right: 4%;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      height: 100%;
+      color: white;
+
+      &--dropdown {
+        font-size: 0.6rem;
+
+        @media screen and (max-width: 950px) {
+          display: none;
+        }
+      }
+    }
+  }
+}

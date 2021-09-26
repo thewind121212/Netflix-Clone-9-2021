@@ -1,0 +1,31 @@
+.notification-item {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  flex-direction: row;
+  justify-content: space-between;
+  column-gap: 20px;
+  width: 100%;
+  height: 100px;
+  padding: 0.75rem;
+  border: 1px solid rgba($color: white, $alpha: 0.6);
+  &__image {
+    background-image: url("../../assets/test.jpg");
+    width: 100%;
+    background-size: cover;
+    border-radius: 6px;
+  }
+  &__content {
+    text-align: left;
+    &--title,
+    &--infomation {
+      font-size: 1rem;
+      font-family: "Netflix Sans", sans-serif;
+      font-weight: 300;
+      color: rgb(207, 205, 205);
+    }
+    &--day {
+      font-size: 0.8rem;
+      color: rgb(141, 141, 141);
+    }
+  }
+}

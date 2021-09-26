@@ -1,0 +1,118 @@
+.categoryItem {
+  color: white;
+  height: 130px;
+  width: calc((100vw - 8vw - 12px) / 4);
+  background-position: center center;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 400;
+  flex: 1 0 auto;
+  position: relative;
+  transition: 0.3s;
+  background-size: cover;
+  &.big {
+    height: 400px;
+  }
+
+  &__container {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 36vw;
+    height: 370px;
+    transform: scale(0);
+    position: absolute;
+    top: -120px;
+    left: -30%;
+    transition: all 0.2s ease;
+    opacity: 0;
+    &--img {
+      width: 100%;
+      border-radius: 5px;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: none;
+    }
+
+    &.left {
+      left: 0;
+    }
+    &.right {
+      left: auto;
+      right: 0 !important;
+    }
+  }
+
+  &:hover {
+    background-color: black;
+    .categoryItem__container {
+      transform: scale(1);
+      transition-delay: 0.5s;
+      opacity: 1;
+      background-color: black;
+      position: absolute;
+      &--img {
+        transition: 0.2s;
+        height: 50%;
+        display: block;
+      }
+    }
+  }
+  &__infoButton {
+    margin-top: 25px;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    &--left {
+      display: flex;
+      gap: 5px;
+    }
+    i {
+      background-color: #141414;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+    &--down {
+      justify-self: end;
+    }
+  }
+
+  &__infoMovieInfo {
+    display: flex;
+    padding: 0 5%;
+    gap: 5px;
+    margin-top: 12px;
+    &--match {
+      color: #46d369;
+      font-weight: bold;
+    }
+    &--age {
+      border: 1px solid white;
+      padding: 0 7px;
+      font-weight: bold;
+    }
+    &--hd {
+      border: 1px solid white;
+      font-size: 0.85rem;
+      padding: 0 4px;
+      font-weight: bold;
+    }
+  }
+
+  &__infoGene {
+    padding: 0 5%;
+    display: flex;
+    gap: 15px;
+    font-size: 1.1rem;
+    margin-top: 12px;
+    text-align: left;
+  }
+}

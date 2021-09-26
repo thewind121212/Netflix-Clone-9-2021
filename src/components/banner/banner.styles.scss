@@ -1,0 +1,116 @@
+.banner {
+  font-family: "Netflix Sans", sans-serif;
+  width: 100%;
+  height: 50vw;
+  color: white;
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 4%;
+    background-size: cover;
+    position: relative;
+    object-fit: center center;
+  }
+  &__info {
+    width: 50vw;
+    position: absolute;
+    left: 4%;
+    bottom: 25%;
+    text-align: left;
+    &--title {
+      font-size: 3rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    &--des {
+      font-size: 0.75rem;
+      font-weight: 300;
+      width: 30vw;
+    }
+  }
+
+  &__button {
+    margin-top: 1rem;
+    display: flex;
+    gap: 10px;
+
+    &--play,
+    &--des {
+      border-radius: 2px;
+      outline: none;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i {
+        font-size: 1.25rem;
+      }
+      h3 {
+        font-size: 0.75rem;
+      }
+    }
+    &--play {
+      width: 5rem;
+      height: 1.75rem;
+      i {
+        font-size: 1.5rem;
+      }
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    &--des {
+      gap: 5px;
+      width: 9rem;
+      height: 1.75rem;
+      background-color: #6d6d6eb3;
+      color: white;
+      &:hover {
+        background-color: #525252b3;
+      }
+    }
+  }
+
+  &__play {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 80px;
+    bottom: 24%;
+    border-radius: 50%;
+    border: 1px solid white;
+  }
+
+  &__age {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    padding-left: 3px;
+    height: 22px;
+    font-size: 0.7rem;
+    width: 70px;
+    border-left: 4px solid white;
+    position: absolute;
+    right: 0;
+    bottom: 25%;
+    background-color: rgba($color: #000, $alpha: 0.5);
+  }
+
+  &__fadeBottom {
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    bottom: 0;
+    height: 7.4rem;
+    background-image: linear-gradient(
+      180deg,
+      transparent,
+      rgba(37, 37, 37, 0.61),
+      #111
+    );
+  }
+}

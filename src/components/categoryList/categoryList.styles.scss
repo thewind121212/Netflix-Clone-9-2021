@@ -1,0 +1,61 @@
+.categoryList {
+  margin-bottom: 25px;
+  :hover {
+    z-index: 998;
+  }
+  &__container {
+    position: relative;
+  }
+
+  &__info {
+    padding: 0 4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    &--text {
+      color: #e5e5e5;
+      text-align: left;
+    }
+    &--dots {
+      display: flex;
+      gap: 3px;
+      .dot {
+        width: 15px;
+        height: 3px;
+        background-color: gray;
+        transition: 0.3s;
+        &.sanglen {
+          background-color: red;
+        }
+      }
+    }
+  }
+  &--prev,
+  &--next {
+    background-color: rgba(20, 20, 20, 0.7);
+    position: absolute;
+    width: 4vw;
+    top: 0;
+    font-size: 2.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    z-index: 400;
+    height: 100%;
+  }
+
+  &--prev {
+    left: 0;
+  }
+  &--next {
+    right: 0;
+  }
+  &__list {
+    z-index: 299;
+    padding-left: 4%;
+    display: flex;
+    gap: 4px;
+    transition: all 0.7s;
+  }
+}

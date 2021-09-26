@@ -1,0 +1,45 @@
+.useravatar {
+  width: 32px;
+  height: 32px;
+  background-image: url("../../assets/Netflix-avatar.png");
+  background-size: cover;
+  border-radius: 4px;
+  text-align: left;
+  &__dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    width: 200px;
+    height: 350px;
+    background-color: rgba($color: #000000, $alpha: 0.9);
+    font-size: 0.9rem;
+    border: 1px solid rgba($color: #fff, $alpha: 0.3);
+  }
+  &__profile {
+    padding: 0 10px;
+    &--content {
+      display: flex;
+      gap: 10px;
+      margin: 10px 0;
+    }
+    &--img {
+      background-image: url("../../assets/Netflix-avatar.png");
+      background-size: cover;
+      border-radius: 3px;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__divide {
+    width: 100%;
+    height: 20px;
+    border: 1px solid rgba($color: #ffff, $alpha: 0.3);
+    border-left: none;
+    border-right: none;
+  }
+
+  &__setting {
+    padding: 0 10px;
+  }
+}

@@ -1,0 +1,27 @@
+@import url("http://fonts.cdnfonts.com/css/netflix-sans");
+
+body {
+  background: #141414;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.App {
+  text-align: center;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+}

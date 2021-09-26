@@ -1,0 +1,31 @@
+
+      .search {
+        display: flex;
+        cursor: pointer;
+
+        &__icon {
+          &.none {
+            display:none;
+          }
+        }
+
+        &__wrap {
+          display: flex;
+          align-items: center;
+          padding-left: 3px;
+          gap: 5px;
+          width: 220px;
+          height: 30px;
+          border: 1px solid white;
+          &.none {
+            display:none;
+          }
+        }
+
+        &__input {
+          background-color: black;
+          outline: none;
+          border: none;
+          color: white;
+        }
+      }

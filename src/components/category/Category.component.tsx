@@ -1,27 +1,38 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import "./category.styles.scss";
 import CategoryList from "../categoryList/CategoryList.component";
-import request from "../../axios/request.api";
+import { fetchMovies } from "../../redux/movieReducer/homeMoive.slice";
+import { title } from "process";
 
-const Category = () => {
-  const arrayOfMoviesData = Object.keys(request).map((key: any) => {
-    return { id: key, data: request[key] };
+const Category: React.FC<any> = (props) => {
+  const [state, setState] = useState<any>(false);
+  const arrayOfMoviesData = Object.keys(props.request).map((key: any) => {
+    return { id: key, data: props.request[key] };
   });
-  console.log(arrayOfMoviesData);
-  return (
-    <div className="category">
-      {arrayOfMoviesData.map((movie: any) => {
-        return (
-          <CategoryList
-            key={movie.id}
-            title={movie.data.titleName}
-            big={movie.data.big}
-            fetch={movie.data.api}
-          />
-        );
-      })}
-    </div>
-  );
+  const selector = useSelector((state: any) => state);
+  const dispatch = useDispatch();
+
+  const { movies, uiLoading } = selector;
+
+  useEffect(() => {
+    dispatch(fetchMovies());
+    setState(true);
+  }, []);
+
+  const movieList = movies.map((movie: any) => {
+    return (
+      <CategoryList
+        key={movie.title}
+        title={movie.title}
+        big={movie.big}
+        moviesData={movie.movies}
+      />
+    );
+  });
+
+  return <div className="category">{uiLoading ? <div></div> : movieList}</div>;
 };
 
 export default Category;

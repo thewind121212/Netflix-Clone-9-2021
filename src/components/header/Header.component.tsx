@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./header.styles.scss";
 import Search from "./Search.component";
 import Bell from "./Bell.component";
@@ -57,17 +58,17 @@ const Header = () => {
     <header className={`header ${show && "nav__black"}`}>
       <nav className="nav">
         <div className="nav__menu">
-          <a href="#" className="nav__logo" />
+          <Link to="/" className="nav__logo" />
           <ul className="nav__list">
             <li className="nav__item">
-              <a href="#" className="nav__link">
+              <Link to="/browse" className="nav__link">
                 Trang chủ
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a href="#" className="nav__link">
+              <Link to="/browse/tvshow" className="nav__link">
                 Phim T.hình
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
               <a href="#" className="nav__link">

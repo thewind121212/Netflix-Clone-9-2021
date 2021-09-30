@@ -4,7 +4,7 @@ type requestType = {
   [key: string]: any;
 };
 
-const request: requestType = {
+export const requestMain: requestType = {
   fetchTrending: {
     titleName: "Phim Thịnh Hành ",
     api: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
@@ -17,12 +17,12 @@ const request: requestType = {
   },
   fetchTopRated: {
     titleName: "Phim Đánh giá cao",
-    api: `movie/top_rated?api_key=${API_KEY}&language=en-US`,
+    api: `movie/top_rated?api_key=${API_KEY}&language=en-US&with_networks=213`,
     big: false,
   },
   fetchActionMovies: {
     titleName: "Phim hành động",
-    api: `discover/movie?api_key=${API_KEY}&with_genres=28`,
+    api: `discover/tv?api_key=${API_KEY}&with_genres=10759&with_networks=213`,
     big: false,
   },
   fetchComedyMovies: {
@@ -47,4 +47,45 @@ const request: requestType = {
   },
 };
 
-export default request;
+export const tvShow: requestType = {
+  fetchTrending: {
+    titleName: "Phim Thịnh Hành ",
+    api: `/discover/tv?api_key=${API_KEY}&with_networks=213&page=2`,
+    big: true,
+  },
+  fetchNetflixOriginals: {
+    titleName: "Phim Chỉ có trên Netflix",
+    api: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
+    big: false,
+  },
+  fetchTopRated: {
+    titleName: "Phim Đánh giá cao",
+    api: `movie/top_rated?api_key=${API_KEY}&language=en-US`,
+    big: false,
+  },
+  fetchActionMovies: {
+    titleName: "Phim hành động",
+    api: `discover/tv?api_key=${API_KEY}&with_genres=10759`,
+    big: false,
+  },
+  fetchComedyMovies: {
+    titleName: "Phim Hài",
+    api: `discover/tv?api_key=${API_KEY}&with_genres=35`,
+    big: false,
+  },
+  fetchHorrorMovies: {
+    titleName: "Phim Tội Phạm",
+    api: `discover/tv?api_key=${API_KEY}&with_genres=80`,
+    big: false,
+  },
+  fetchRomanceMovies: {
+    titleName: "Phim Viễn Tưởng",
+    api: `discover/tv?api_key=${API_KEY}&with_genres=10765`,
+    big: false,
+  },
+  fetchDocumentaries: {
+    titleName: "Phim Tài Liệu",
+    api: `discover/tv?api_key=${API_KEY}&with_genres=99`,
+    big: false,
+  },
+};

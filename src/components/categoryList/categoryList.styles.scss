@@ -2,6 +2,10 @@
   margin-bottom: 25px;
   :hover {
     z-index: 998;
+    .categoryList--prev,
+    .categoryList--next {
+      opacity: 1;
+    }
   }
   &__container {
     position: relative;
@@ -34,6 +38,8 @@
   &--prev,
   &--next {
     background-color: rgba(20, 20, 20, 0.7);
+    opacity: 0;
+    transition: 0.2s;
     position: absolute;
     width: 4vw;
     top: 0;

@@ -4,17 +4,8 @@ import axios from "../../axios/axios.api";
 import "./categoryList.styles.scss";
 
 const CategoryList: React.FC<any> = (props) => {
-  const [movieRow, setMoviewRow] = useState<any>([]);
   const [slideShow, setSlideShow] = useState<any>(0);
   const [touchedNextSlide, setTouchedNextSlide] = useState<any>(false);
-
-  useEffect(() => {
-    const getData = async () => {
-      const res = await axios.get(props.fetch);
-      setMoviewRow(res.data.results);
-    };
-    getData();
-  }, [setMoviewRow]);
 
   const changeSlideList = (direction: string) => {
     if (direction === "left") {
@@ -54,9 +45,9 @@ const CategoryList: React.FC<any> = (props) => {
             transform: `translateX(calc((100vw - 8vw + 4px)*${slideShow}))`,
           }}
         >
-          {movieRow.map((movie: any) => {
+          {props.moviesData.map((movie: any) => {
             return (
-              <CategoryItem key={movie.id} movieData={movie} big={props.big} />
+              <CategoryItem key={movie.id} movieData={movie} big={movie.big} />
             );
           })}
         </div>

@@ -23,7 +23,7 @@ const CategoryItem: React.FC<any> = (props) => {
 
   return (
     <div
-      className={`categoryItem ${props.big && "big"}`}
+      className={`categoryItem   ${props.big && "big"}`}
       style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/original/${props.movieData?.backdrop_path})`,
       }}

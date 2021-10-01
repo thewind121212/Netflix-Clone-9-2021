@@ -25,14 +25,14 @@ const CategoryItem: React.FC<any> = (props) => {
     <div
       className={`categoryItem   ${props.big && "big"}`}
       style={{
-        backgroundImage: `url(https://image.tmdb.org/t/p/original/${props.movieData?.backdrop_path})`,
+        backgroundImage: `url(https://image.tmdb.org/t/p/w500/${props.movieData?.backdrop_path})`,
       }}
       ref={cardRef}
       onMouseOver={showPopUp}
     >
       <div className="categoryItem__container" ref={popUpRef}>
         <img
-          src={`https://image.tmdb.org/t/p/original/${props.movieData?.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/w500/${props.movieData?.backdrop_path}`}
           className="categoryItem__container--img"
           alt=""
         />

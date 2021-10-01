@@ -58,7 +58,7 @@ const Header = () => {
     <header className={`header ${show && "nav__black"}`}>
       <nav className="nav">
         <div className="nav__menu">
-          <Link to="/" className="nav__logo" />
+          <Link to="/browse" className="nav__logo" />
           <ul className="nav__list">
             <li className="nav__item">
               <Link to="/browse" className="nav__link">
@@ -71,9 +71,9 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav__item">
-              <a href="#" className="nav__link">
+              <Link to="/browse/movie" className="nav__link">
                 Phim
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
               <a href="#" className="nav__link">

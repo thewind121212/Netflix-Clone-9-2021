@@ -1,4 +1,9 @@
 .category {
   color: black;
   width: 100vw;
+  transition: 0.2s;
+  &.loading {
+    transition: 0.2s;
+    opacity: 0;
+  }
 }

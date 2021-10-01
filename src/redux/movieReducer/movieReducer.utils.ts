@@ -1,21 +1,22 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../../axios/axios.api";
-import { requestMain } from "../../axios/request.api";
+import { dataMovie } from "../../axios/request.api";
 
 export const fetchMovies = createAsyncThunk(
   "fetchMovies",
-  async (typeMovie, thunk) => {
-    const movieKey = Object.keys(requestMain);
+  async (typeMovie: string, thunk) => {
+    const movieKey = Object.keys(dataMovie[typeMovie]);
     const moviesData = await Promise.all(
       movieKey.map(async (key: any) => {
-        const moviesData = await axios.get(key.api);
+        const moviesData = await axios.get(dataMovie[typeMovie][key].api);
         return {
-          title: key.titleName,
+          id: dataMovie[typeMovie][key].id,
+          title: dataMovie[typeMovie][key].titleName,
           movies: moviesData.data.results,
-          big: key.big,
+          big: dataMovie[typeMovie][key].big,
         };
       })
     );
-    return moviesData;
+    return { typeMovie: typeMovie, movies: moviesData };
   }
 );

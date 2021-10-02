@@ -1,0 +1,13 @@
+.dots {
+  display: flex;
+  gap: 3px;
+  .dot {
+    width: 15px;
+    height: 3px;
+    background-color: gray;
+    transition: 0.3s;
+    &.sanglen {
+      background-color: red;
+    }
+  }
+}

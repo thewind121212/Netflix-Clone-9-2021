@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router";
+import { useSelector } from "react-redux";
 
 import "./mainPage.styles.scss";
 import Header from "../components/header/Header.component";

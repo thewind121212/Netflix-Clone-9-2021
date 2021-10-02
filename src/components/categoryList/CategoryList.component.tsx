@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import CategoryItem from "../categoryItem/CategoryItem.component";
-import axios from "../../axios/axios.api";
+import UiSlider from "../UI/SliderDot.component";
 import "./categoryList.styles.scss";
 
 const CategoryList: React.FC<any> = (props) => {
@@ -9,11 +9,11 @@ const CategoryList: React.FC<any> = (props) => {
 
   const changeSlideList = (direction: string) => {
     if (direction === "left") {
-      slideShow === 0 ? setSlideShow(-4) : setSlideShow(slideShow + 1);
+      slideShow === 0 ? setSlideShow(-4) : setSlideShow(slideShow - 1);
     }
     if (direction === "right") {
       setTouchedNextSlide(true);
-      slideShow === -4 ? setSlideShow(0) : setSlideShow(slideShow - 1);
+      slideShow === -10 ? setSlideShow(0) : setSlideShow(slideShow + 1);
     }
   };
 
@@ -21,13 +21,7 @@ const CategoryList: React.FC<any> = (props) => {
     <div className="categoryList">
       <div className="categoryList__info">
         <div className="categoryList__info--text">{props.title}</div>
-        <div className="categoryList__info--dots">
-          <div className={`dot ${slideShow === 0 && "sanglen"}`}></div>
-          <div className={`dot ${slideShow === -1 && "sanglen"}`}></div>
-          <div className={`dot ${slideShow === -2 && "sanglen"}`}></div>
-          <div className={`dot ${slideShow === -3 && "sanglen"}`}></div>
-          <div className={`dot ${slideShow === -4 && "sanglen"}`}></div>
-        </div>
+        <UiSlider slide={slideShow} key={props.title} />
       </div>
       <div className="categoryList__container">
         <div
@@ -42,7 +36,7 @@ const CategoryList: React.FC<any> = (props) => {
         <div
           className="categoryList__list"
           style={{
-            transform: `translateX(calc((100vw - 8vw + 4px)*${slideShow}))`,
+            transform: `translateX(calc((100vw - 8vw + 4px)*(-${slideShow})))`,
           }}
         >
           {props.moviesData.map((movie: any) => {

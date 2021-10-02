@@ -6,9 +6,11 @@ interface homeMovieType {
   defaultPage: any;
   tvShow: any;
   movies: any;
+  loading: boolean;
 }
 
 const initialState: homeMovieType = {
+  loading: true,
   defaultPage: [],
   movies: [],
   tvShow: [],
@@ -17,7 +19,14 @@ const initialState: homeMovieType = {
 export const movieSlice = createSlice({
   name: "movie",
   initialState,
-  reducers: {},
+  reducers: {
+    loadingStart: (state) => {
+      state.loading = true;
+    },
+    loadingEnd: (state) => {
+      state.loading = false;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchMovies.fulfilled, (state, action: any) => {
       if (action.payload.typeMovie === "defaultPage") {
@@ -32,3 +41,5 @@ export const movieSlice = createSlice({
     });
   },
 });
+
+export const actions = movieSlice.actions;

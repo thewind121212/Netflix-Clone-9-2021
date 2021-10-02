@@ -10,10 +10,12 @@ const Category: React.FC<any> = (props) => {
   const [loading, setLoading] = useState<any>(true);
   const dispatch = useDispatch();
 
+  const moviesList = selector.movies[props.movieType];
+
   let rootMovies: any = [];
 
   useEffect(() => {
-    if (selector.movies[props.movieType].length === 0) {
+    if (moviesList.length === 0) {
       dispatch(fetchMovies(props.movieType));
     }
     setTimeout(() => {
@@ -23,7 +25,7 @@ const Category: React.FC<any> = (props) => {
     return () => {
       setLoading(true);
     };
-  }, [dispatch, props.movieType, selector]);
+  }, [dispatch, props.movieType, moviesList]);
 
   rootMovies = selector.movies[props.movieType];
 

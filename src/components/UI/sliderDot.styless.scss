@@ -1,9 +1,11 @@
-.dots {
+.categoryList__info--dots {
   display: flex;
+  opacity: 0;
+  transition: 0.3s;
   gap: 3px;
-  .dot {
-    width: 15px;
-    height: 3px;
+  &--dot {
+    width: 12px;
+    height: 2px;
     background-color: gray;
     transition: 0.3s;
     &.sanglen {

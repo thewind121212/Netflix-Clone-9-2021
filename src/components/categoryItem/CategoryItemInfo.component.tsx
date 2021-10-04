@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import axios from "../../axios/axios.api";
+import InfoBlock from "./InfoBlock.component";
 
 const CategoryItemInfo: React.FC<any> = React.forwardRef((props, ref: any) => {
+  const [show, setShow] = useState<any>(false);
+  const showMovieInfo = () => {
+    setShow(true);
+  };
   return (
     <div
       className="categoryItem__container"
       ref={ref}
       onMouseLeave={props.clearPopUpPosition}
       onMouseOver={props.onShowPopUp}
+      onMouseEnter={showMovieInfo}
     >
       <img
         src={`https://image.tmdb.org/t/p/w500/${props.imageDisplay}`}
@@ -25,19 +30,7 @@ const CategoryItemInfo: React.FC<any> = React.forwardRef((props, ref: any) => {
           <i className="bx bx-chevron-down categoryItem__infoButton--down"></i>
         </div>
       </div>
-      <div className="categoryItem__infoMovieInfo">
-        <i className="categoryItem__infoMovieInfo--match">
-          Độ trùng: {Math.floor(Math.random() * 20 + 80)}%
-        </i>
-        <i className="categoryItem__infoMovieInfo--age">18+</i>
-        <i className="categoryItem__infoMovieInfo--season">1 mùa</i>
-        <i className="categoryItem__infoMovieInfo--hd">HD</i>
-      </div>
-      <div className="categoryItem__infoGene">
-        <i className="categoryItem__infoGene--1">Hành Động</i>
-        <i className="categoryItem__infoGene--2">Tâm Lý</i>
-        <i className="categoryItem__infoGene--3">Giật Gân</i>
-      </div>
+      {show && <InfoBlock id={props.id} />}
     </div>
   );
 });

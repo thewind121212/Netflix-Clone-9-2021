@@ -1,4 +1,4 @@
-const API_KEY = "0f07f9146209302905c442436188fc21";
+export const API_KEY = "0f07f9146209302905c442436188fc21";
 
 type requestType = {
   [key: string]: any;
@@ -9,57 +9,57 @@ export const dataMovie: requestType = {
     fetchTrending: {
       id: "home1",
       titleName: "Phim Thịnh Hành ",
-      api: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
-      api1: `/trending/all/week?api_key=${API_KEY}&language=en-US&page=4`,
+      api: `/trending/movie/week?api_key=${API_KEY}&language=en-US`,
+      api1: `/trending/movie/week?api_key=${API_KEY}&language=en-US&page=2`,
       big: true,
     },
     fetchNetflixOriginals: {
       id: "home2",
       titleName: "Phim Chỉ có trên Netflix",
-      api: `/discover/tv?api_key=${API_KEY}&with_networks=213&page=6`,
-      api1: `/trending/all/week?api_key=${API_KEY}&language=en-US&page=7`,
+      api: `/trending/movie/week?api_key=${API_KEY}&language=en-US&page=3`,
+      api1: `/trending/movie/week?api_key=${API_KEY}&language=en-US&page=4`,
       big: false,
     },
     fetchTopRated: {
       id: "home3",
       titleName: "Phim Đánh giá cao",
-      api: `movie/top_rated?api_key=${API_KEY}&language=en-US&with_networks=213&page=6`,
-      api1: `/trending/all/week?api_key=${API_KEY}&language=en-US&page=8`,
+      api: `movie/top_rated?api_key=${API_KEY}&language=en-US&with_networks=213&page=8`,
+      api1: `movie/top_rated?api_key=${API_KEY}&language=en-US&with_networks=213&page=9`,
       big: false,
     },
     fetchActionMovies: {
       id: "home4",
       titleName: "Phim hành động",
-      api: `discover/tv?api_key=${API_KEY}&with_genres=10759&with_networks=213&page=2`,
-      api1: `/trending/all/week?api_key=${API_KEY}&language=en-US&page=9`,
+      api: `/trending/movie/week?api_key=${API_KEY}&language=en-US&page=6`,
+      api1: `/trending/movie/week?api_key=${API_KEY}&language=en-US&page=5`,
       big: false,
     },
     fetchComedyMovies: {
       id: "home5",
       titleName: "Phim Hài",
-      api: `discover/movie?api_key=${API_KEY}&with_genres=35`,
-      api1: `/trending/all/week?api_key=${API_KEY}&language=en-US&page=10`,
+      api: `discover/movie?api_key=${API_KEY}&with_genres=35&page=8`,
+      api1: `/trending/movie/week?api_key=${API_KEY}&language=en-US&page=5`,
       big: false,
     },
     fetchHorrorMovies: {
       id: "home6",
       titleName: "Phim Kinh Dị",
-      api: `discover/movie?api_key=${API_KEY}&with_genres=27`,
-      api1: `/trending/all/week?api_key=${API_KEY}&language=en-US&page=11`,
+      api: `discover/movie?api_key=${API_KEY}&with_genres=27&page=3`,
+      api1: `discover/movie?api_key=${API_KEY}&with_genres=27&page=4`,
       big: false,
     },
     fetchRomanceMovies: {
       id: "home7",
       titleName: "Phim Lãng Mạn",
       api: `discover/movie?api_key=${API_KEY}&with_genres=10749`,
-      api1: `/trending/all/week?api_key=${API_KEY}&language=en-US&page=12`,
+      api1: `discover/movie?api_key=${API_KEY}&with_genres=10749&page=2`,
       big: false,
     },
     fetchDocumentaries: {
       id: "home8",
       titleName: "Phim Tài Liệu",
-      api: `discover/movie?api_key=${API_KEY}&with_genres=99`,
-      api1: `/trending/all/week?api_key=${API_KEY}&language=en-US&page=13`,
+      api: `discover/movie?api_key=${API_KEY}&with_genres=99&page=1`,
+      api1: `discover/movie?api_key=${API_KEY}&with_genres=99&page=2`,
       big: false,
     },
   },

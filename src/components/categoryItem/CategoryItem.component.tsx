@@ -25,7 +25,6 @@ const CategoryItem: React.FC<any> = (props) => {
   const clearPopUpPosition = () => {
     popUpRef.current.classList.remove("left");
     popUpRef.current.classList.remove("right");
-    console.log("123");
   };
 
   return (
@@ -37,6 +36,7 @@ const CategoryItem: React.FC<any> = (props) => {
       ref={cardRef}
     >
       <CategoryItemInfo
+        id={props.id}
         ref={popUpRef}
         imageDisplay={props.movieData?.backdrop_path}
         onClearPopUpPositon={clearPopUpPosition}

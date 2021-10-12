@@ -1,3 +1,14 @@
-.homepage {
-  overflow: hidden;
+.moviesPage {
+  height: auto;
+  .homepage {
+    top: -900px;
+    overflow: hidden;
+  }
+  .moviesPreview-backdrop {
+    background: transparent;
+    visibility: hidden;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+  }
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../axios/axios.api";
 import { API_KEY } from "../../axios/request.api";
+import "./infoBlock.styles.scss";
 
 const InfoBlock: React.FC<any> = (props) => {
   const [movieInfo, setMovieInfo] = useState<any>({
@@ -30,20 +31,18 @@ const InfoBlock: React.FC<any> = (props) => {
   }phút`;
   return (
     <div>
-      <div className="categoryItem__infoMovieInfo">
-        <i className="categoryItem__infoMovieInfo--match">
+      <div className="infoMovieInfo">
+        <i className="infoMovieInfo--match">
           Độ trùng: {Math.floor(Math.random() * 20 + 80)}%
         </i>
-        <i className="categoryItem__infoMovieInfo--age">
-          {movieInfo.adult ? "18+" : "14+"}
-        </i>
-        <i className="categoryItem__infoMovieInfo--season">{runTime}</i>
+        <i className="infoMovieInfo--age">{movieInfo.adult ? "18+" : "All"}</i>
+        <i className="infoMovieInfo--season">{runTime}</i>
         <i className="categoryItem__infoMovieInfo--hd">HD</i>
       </div>
-      <div className="categoryItem__infoGene">
+      <div className="infoGene">
         {movieInfo.genres.slice(0, 3).map((genre: any) => {
           return (
-            <i key={genre.id} className="categoryItem__infoGene--1">
+            <i key={genre.id} className="infoGene__style">
               {genre.name}
             </i>
           );

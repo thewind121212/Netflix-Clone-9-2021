@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Route, Switch } from "react-router";
 import { useDispatch } from "react-redux";
 
+import MoviePreview from "../components/moviePreview/MoviePreview.component";
 import "./mainPage.styles.scss";
 import { dotSliceActions } from "../redux/globalResponsive/dotSlider.slice";
 import Header from "../components/header/Header.component";
@@ -28,20 +29,23 @@ const HomePage = () => {
     window.addEventListener("resize", resizerHandler);
   }, [dispatch]);
   return (
-    <div className="homepage">
-      <Header />
-      <Banner />
-      <Switch>
-        <Route path="/browse" exact>
-          <Category movieType={"defaultPage"} key={"defaultPage"} />
-        </Route>
-        <Route path="/browse/tvshow">
-          <Category movieType={"tvShow"} key={"tvshow"} />
-        </Route>
-        <Route path="/browse/movie">
-          <Category movieType={"movies"} key={"movies"} />
-        </Route>
-      </Switch>
+    <div className="moviesPage">
+      <div className="homepage">
+        <Header />
+        <Banner />
+        <Switch>
+          <Route path="/browse">
+            <Category movieType={"defaultPage"} key={"defaultPage"} />
+          </Route>
+          <Route path="/browse/tvshow">
+            <Category movieType={"tvShow"} key={"tvshow"} />
+          </Route>
+          <Route path="/browse/movie">
+            <Category movieType={"movies"} key={"movies"} />
+          </Route>
+        </Switch>
+      </div>
+      <MoviePreview />
     </div>
   );
 };

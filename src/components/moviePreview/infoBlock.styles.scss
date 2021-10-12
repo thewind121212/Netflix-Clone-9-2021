@@ -1,0 +1,32 @@
+.infoMovieInfo {
+  display: flex;
+  padding: 0 5%;
+  color: white;
+  gap: 5px;
+  margin-top: 12px;
+  &--match {
+    color: #46d369;
+    font-weight: bold;
+  }
+  &--age {
+    border: 1px solid white;
+    padding: 0 7px;
+    font-weight: bold;
+  }
+  &--hd {
+    border: 1px solid white;
+    font-size: 0.85rem;
+    padding: 0 4px;
+    font-weight: bold;
+  }
+}
+
+.infoGene {
+  padding: 0 5%;
+  display: flex;
+  color: white;
+  gap: 15px;
+  font-size: 1.1rem;
+  margin-top: 12px;
+  text-align: left;
+}

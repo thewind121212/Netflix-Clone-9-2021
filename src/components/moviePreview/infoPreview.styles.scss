@@ -1,0 +1,35 @@
+.info-preview {
+  position: static;
+  padding-top: 25px;
+  .infoButton {
+    color: white;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    &__left {
+      display: flex;
+      gap: 5px;
+    }
+    i {
+      background-color: #232323;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-radius: 50%;
+      border: 2px solid #919191;
+    }
+    &--play {
+      background-color: white !important;
+      color: black;
+      border: none !important;
+    }
+    &--down {
+      justify-self: end;
+    }
+  }
+}

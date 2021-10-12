@@ -1,30 +1,46 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./categoryItem.styles.scss";
-import CategoryItemInfo from "./CategoryItemInfo.component";
+import { useDispatch } from "react-redux";
+import { previewMovieActions } from "../../redux/previewMovie/previewMovie.slice";
 
 const defaultLocation = (window.innerWidth / 100) * 4;
 
 const CategoryItem: React.FC<any> = (props) => {
-  const popUpRef = useRef<any>(null);
+  const [mouseDelayHandler, setMouseEventHandler] = useState<any>(null);
   const cardRef = useRef<any>(null);
 
-  const showPopUp = () => {
-    const defaultWidth = cardRef.current.getBoundingClientRect();
-    popUpRef.current.classList.remove("left");
-    popUpRef.current.classList.remove("right");
-    if (Math.floor(defaultWidth.x) < 100) {
-      popUpRef.current.classList.add("left");
-    } else if (
-      Math.floor(defaultWidth.x + defaultWidth.width + 50) >
-      Math.floor(window.innerWidth - defaultLocation)
-    ) {
-      popUpRef.current.classList.add("right");
-    }
+  const dispatch = useDispatch();
+
+  const getMoviePostion = () => {
+    setMouseEventHandler(
+      setTimeout(() => {
+        const defaultWidth = cardRef.current.getBoundingClientRect();
+        let left = defaultWidth.x;
+        let right = null;
+        if (Math.floor(defaultWidth.x) < 100) {
+          left = 0;
+        } else if (
+          Math.floor(defaultWidth.x + defaultWidth.width + 50) >
+          Math.floor(window.innerWidth - defaultLocation)
+        ) {
+          right = 0;
+        }
+        dispatch(
+          previewMovieActions.getMovieData({
+            top: defaultWidth.top + window.scrollY,
+            left: left,
+            width: defaultWidth.width,
+            right: right,
+            image: props.movieData.backdrop_path,
+            movieId: props.id,
+          })
+        );
+      }, 400)
+    );
   };
 
-  const clearPopUpPosition = () => {
-    popUpRef.current.classList.remove("left");
-    popUpRef.current.classList.remove("right");
+  const clearMouseDelay = () => {
+    clearTimeout(mouseDelayHandler);
   };
 
   return (
@@ -34,15 +50,9 @@ const CategoryItem: React.FC<any> = (props) => {
         backgroundImage: `url(https://image.tmdb.org/t/p/w500/${props.movieData?.backdrop_path})`,
       }}
       ref={cardRef}
-    >
-      <CategoryItemInfo
-        id={props.id}
-        ref={popUpRef}
-        imageDisplay={props.movieData?.backdrop_path}
-        onClearPopUpPositon={clearPopUpPosition}
-        onShowPopUp={showPopUp}
-      />
-    </div>
+      onMouseOver={getMoviePostion}
+      onMouseLeave={clearMouseDelay}
+    ></div>
   );
 };
 

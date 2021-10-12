@@ -26,7 +26,6 @@ export const fetchMovies = createAsyncThunk(
         };
       })
     );
-    console.log("123");
     dispatch(actions.loadingEnd());
     return { typeMovie: typeMovie, movies: moviesData };
   }

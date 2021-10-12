@@ -4,7 +4,7 @@ interface dotSliceType {
   [dotQuantity: string]: number;
 }
 
-const initialState = {
+const initialState: dotSliceType = {
   dotQuantity: 0,
 };
 
